@@ -7,6 +7,10 @@ import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/*
+* Adam Oliveira, Ana Carolina Hausmann, Guilherme P Milani, Nicoly K. L. Araujo
+* */
+
 public class BerkeleyClient {
 
     public static void main(String[] args) {

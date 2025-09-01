@@ -9,6 +9,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Adam Oliveira, Ana Carolina Hausmann, Guilherme P Milani, Nicoly K. L. Araujo
+ * */
+
 public class BerkeleyServer {
     private static int porta = 8080;
     private static int clientes = 3;
