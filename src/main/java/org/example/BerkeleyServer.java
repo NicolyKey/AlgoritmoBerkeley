@@ -5,12 +5,14 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BerkeleyServer {
     private static int porta = 8080;
-    private static int clientes = 5;
+    private static int clientes = 3;
+    private static SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(porta);
@@ -26,7 +28,7 @@ public class BerkeleyServer {
         }
 
         long serverTime = System.currentTimeMillis();
-        System.out.println("Hora do servidor: " + serverTime);
+        System.out.println("Hora do servidor: " + sdf.format(serverTime));
 
         for (Socket client : clients) {
             try {
@@ -36,15 +38,15 @@ public class BerkeleyServer {
                 out.writeLong(serverTime);
 
                 long clientTime = in.readLong();
+                              // 15:17:45
                 long offset = clientTime - serverTime;
                 offsets.add(offset);
 
-                System.out.println("Hora cliente " + client.getInetAddress() + ": " + clientTime + " (offset=" + offset + ")");
+                System.out.println("Hora cliente " + client.getInetAddress() + ": " + sdf.format(clientTime) + " (offset=" + offset + ")");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
 
         long soma = 0;
         for (long offset : offsets) soma += offset;
