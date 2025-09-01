@@ -1,4 +1,4 @@
-package java;
+package src.main.java.org.example;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BerkeleyServer {
-    private static String endereco = "localhost";
     private static int porta = 8080;
     private static int clientes = 5;
 
@@ -65,12 +64,5 @@ public class BerkeleyServer {
 
         for (Socket client : clients) client.close();
         serverSocket.close();
-    }
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public int getPorta() {
-        return porta;
     }
 }
